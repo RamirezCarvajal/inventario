@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inv_FO</title>
+<script src="script.js"></script>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<h1> Inventario FO</h1>
+
+<div class="datos">
+  <label><strong>Tipo Movil:</strong>
+    <select id="movil">
+      <option>Correctivo FO</option>
+      <option>Proyecto FO</option>
+      <option>Recorredor</option>      
+    </select>
+  </label>
+  <br><br>
+  <label><strong>Tipo Vehiculo:</strong>
+    <select id="vehiculo">
+      <option>Camioneta</option>
+      <option>Carry</option>
+      <option>Furgon</option>
+      <option>Moto</option>      
+    </select>
+  </label>
+  <br><br>
+  <label><strong>Tecnico Empalmador:</strong>
+    <input type="text" id="empalmador" style="width:300px">
+  </label>
+  <br><br>
+  <label><strong>Tecnico Medidor:</strong>
+    <input type="text" id="medidor" style="width:300px">
+  </label>
+  <br><br>
+  <label><strong>Tecnico Liniero:</strong>
+    <input type="text" id="liniero" style="width:300px">
+  </label>
+  <br><br>
+  <label><strong>Fecha:</strong>
+    <input type="date" id="fecha">
+  </label>
+  <br><br>
+  <label><strong>Placa Vehiculo:</strong>
+    <input type="text" id="placa" style="width:300px">
+  </label>
+</div>
+
+<table id="tabla">
+  <thead>
+    <tr>
+      <th>Categoría</th>
+      <th>Elemento</th>
+      <th>Cantidad</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- HERRAMIENTAS -->
+    <tr><td>Herramientas</td><td>Alicate Universal</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Antenalla</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Balde</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Herramientas</td><td>Banana Cutter</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Barra 14 lbs Larga</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Barra Pata de Cabra 18 pulg.</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Binoculares</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Brocha</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Caja Grande Porta Herramientas 20 pulg</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Cinta de Anclaje Tipo TIE-OFF</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Cizalla de Corte</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Cortafrio</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Disco de Pulidora Concreto</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Dico de Pulidora Metalico</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Electrobomba Sumergible 1Hp</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Emisor Laser</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Equipo de Soldadura</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Escalera 2,5 mts Tijera</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Escalera de Fibra 3 a 6 mts</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Estacion para Fusion (Mesa-Carpa)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Extensión de Corriente 15 m de a5 amp</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Gas maspp con manguera boquilla, chispero (tanque butano)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Hombresolo</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Inversor a 110v</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego de Copas Klein</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego de Llaves Boca Fija (12 , 1/2 pulg.)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego de Llaves Bristol</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego Destornilladores de Estrella Grandes y Pequeños</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego Destornilladores de Pala Grandes y Pequeños</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego Rache y Copas</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Kit de Limpieza</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Kit de Preparación Fibra Optica</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Llave Expansiva 12 pulg.</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Machete</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Malacate Entenalla para Templar Cable</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Manila 3/8 pulg. Blanda para Ayudante de Redes</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Martillo Pata de Cabra</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Maseta</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Multitoma</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Navaja Curva</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Pala</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Palustre</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Pelador de Fibra</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Pica</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Pinza de Punta  8 pulg.</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Pinza Voltiamperimétrica</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Planta Eléctrica Generadora 3000w</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Porta Carrete</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Pulidora</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Puntero de 30 cm</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Reflector de 500 lum con Tripode</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Roldanas para Cámara</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Sangrado de Buffer</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Sapo Comelón Antenalla 1500 lbs</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Segueta (Marco y Segueta)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Sonda Dieléctrica (80 m)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Herramientas</td><td>Taladro percutor con llave</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Herramientas</td><td>Tijeras</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Zunchadora</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Cortadora de Fibra</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Cuchillas para Bisturí jgo de 10 Piezas</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Dispensador de Alcohol Isopropílico</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Juego de Pinzas con Aislamiento</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Mandil y Polainas de Cuero</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Mosquetones en Acero de Cierre Automatico 4</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Herramientas</td><td>Silla de Trabajo</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Herramientas</td><td>Smartphone</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+
+    <!-- EQUIPOS DE MEDICIÓN -->
+    <tr><td>Equipos de Medición</td><td>Bobina de Lanzamiento</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>Certificación para Empalmadora de Fibra</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Equipos de Medición</td><td>Certificación para Medidor de Fibra Optica</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>Flexometro 8 Metros</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>Odómetro</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>Fuente de Luz Visible</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>OTDR GPON</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>Empalmadora de Fusion Fujikura fms50s</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Equipos de Medición</td><td>Power Meter</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Equipos de Medición</td><td>Sistema de Monitoreo (HW SW y Comunicaciones)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+
+    <!-- SEÑALES -->
+    <tr><td>Señales de Tránsito</td><td>Cinta Delimitadora de Areas 2 pulg. Amarillo-Negro x 50 mts</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Señales de Tránsito</td><td>Cono señalización rojo 90 cms</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>Señales de Tránsito</td><td>Desvió señalización</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Señales de Tránsito</td><td>Pare Señalización</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Señales de Tránsito</td><td>Taco de Madera (10X10X30)X3</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Señales de Tránsito</td><td>Reductor Velocidad Pasacable</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Señales de Tránsito</td><td>Roldanas para Poste</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>Señales de Tránsito</td><td>Señalización Lumínica para Portacarrete</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+
+    <!-- EPP -->
+    <tr><td>EPP</td><td>Careta para Taladrar por Móvil</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Certificación en Alturas (Linea Vida - linea descenso)</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Certificación en Soldadura</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Elementos de Proteccion para Trabajos en Altura</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Elementos de Protección Personal.  Según Norma</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>EPP</td><td>Eslinga de Restriccion</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Freno de Cuerda con Cinta</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Gafas de Seguridad para Esmeril ó Pulidora</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+    <tr><td>EPP</td><td>Guantes carnaza</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  <tr><td>EPP</td><td>Uniforme Según Anexo Imagen Corporativa</td><td><input type="number" min="0"></td><td>
+    <select>
+      <option>No tiene</option>
+      <option>Bueno</option>
+      <option>Malo</option>
+      <option>Incompleto</option>
+      <option>NA</option>
+    </select>
+  </td></tr>
+  </tbody>
+</table>
+
+<button onclick="exportarPDF()">Exportar a PDF</button>
+
+<script>
+
+</script>
+
+
+</body>
+</html>
