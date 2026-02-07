@@ -154,5 +154,5 @@ async function exportarPDF() {
     y += 8;
   });
 
-  doc.save("inventario_estado_encabezado.pdf");
+  doc.save("inventario_HFC_"+ document.getElementById("movil").value +"_"+ document.getElementById("placa").value);
 }
