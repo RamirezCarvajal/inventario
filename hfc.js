@@ -1,4 +1,4 @@
-async function exportarPDF() {
+async function exportarPDFYExcel() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
@@ -27,38 +27,64 @@ async function exportarPDF() {
   doc.text("Placa Vehiculo: " + document.getElementById("placa").value, 10, y);
   y += 10;
 
+  
+   // Obtener las filas de la tabla
   const filas = document.querySelectorAll("#tabla tbody tr");
-  const categorias = {};
+  const categorias = [];
+
+  let categoriaActual = "";
 
   filas.forEach(fila => {
+    // Si es una fila de categoría
+    if (fila.classList.contains("categoria")) {
+      categoriaActual = fila.innerText.trim();
+      return; // Continuar con la siguiente fila
+    }
+
+    // Si es una fila de encabezado (debe ser ignorada)
+    if (fila.classList.contains("encabezados")) {
+      return; // Saltar encabezados
+    }
+
+    // Si es una fila con datos de elementos
     const celdas = fila.querySelectorAll("td");
+    if (celdas.length < 3) return; // Saltar filas que no tienen datos
 
-    const categoria = celdas[0].innerText;
-    const elemento = celdas[1].innerText;
-    const cantidad = Number(celdas[2].querySelector("input").value || 0);
-    const estado = celdas[3].querySelector("select").value;
+    const elemento = celdas[0].innerText; // El nombre del elemento
+    const cantidad = Number(celdas[1].querySelector("input").value || 0); // La cantidad
+    const estado = celdas[2].querySelector("select").value; // El estado
 
-    // Si es NA, no se incluye
-    if (estado === "NA") return;
+    if (estado === "NA") return; // Si el estado es "NA", no lo incluyo en el PDF
 
-    if (!categorias[categoria]) categorias[categoria] = [];
-    categorias[categoria].push({ elemento, cantidad, estado });
+    // Agregar el ítem con la categoría, placa y movil a la lista
+    categorias.push({
+      categoria: categoriaActual,
+      elemento: elemento,
+      cantidad: cantidad,
+      estado: estado,
+      placa: document.getElementById("placa").value,
+      movil: document.getElementById("movil").value
+    });
   });
 
-  // Resumen General
+  // Resumen General en el PDF
   doc.setFontSize(12);
   doc.text("Resumen General", 10, y);
   y += 8;
 
   doc.setFontSize(9);
 
-  Object.keys(categorias).forEach(cat => {
-    const items = categorias[cat];
-    const total = items.length;
-    const buenos = items.filter(i => i.estado === "Bueno").length;
-    const porcentaje = total === 0 ? 0 : Math.round((buenos / total) * 100);
-    const faltantes = items.filter(i => i.estado === "No tiene").length;
+  let resumenGeneral = {};
+  categorias.forEach(item => {
+    if (!resumenGeneral[item.categoria]) resumenGeneral[item.categoria] = { total: 0, buenos: 0, faltantes: 0 };
+    resumenGeneral[item.categoria].total++;
+    if (item.estado === "Bueno") resumenGeneral[item.categoria].buenos++;
+    if (item.estado === "No tiene") resumenGeneral[item.categoria].faltantes++;
+  });
 
+  Object.keys(resumenGeneral).forEach(cat => {
+    const data = resumenGeneral[cat];
+    const porcentaje = Math.round((data.buenos / data.total) * 100);
     let estadoTexto = "CRÍTICO";
     doc.setTextColor(200, 0, 0);
 
@@ -71,7 +97,7 @@ async function exportarPDF() {
     }
 
     doc.text(
-      `${cat}: ${porcentaje}% Bueno | No tiene: ${faltantes} | Estado: ${estadoTexto}`,
+      `${cat}: ${porcentaje}% Bueno | No tiene: ${data.faltantes} | Estado: ${estadoTexto}`,
       10,
       y
     );
@@ -80,22 +106,18 @@ async function exportarPDF() {
 
   y += 8;
 
-  // Detalle por categoría
-  Object.keys(categorias).forEach(cat => {
-    const items = categorias[cat];
+  // Detalle por categoría en el PDF
+  Object.keys(resumenGeneral).forEach(cat => {
+    const items = categorias.filter(item => item.categoria === cat);
 
     if (y > 260) {
       doc.addPage();
       y = 15;
     }
 
-    const total = items.length;
-    const buenos = items.filter(i => i.estado === "Bueno").length;
-    const porcentaje = total === 0 ? 0 : Math.round((buenos / total) * 100);
-
     doc.setFontSize(11);
     doc.setTextColor(0, 0, 0);
-    doc.text(`${cat} - ${porcentaje}% Bueno`, 10, y);
+    doc.text(`${cat}`, 10, y);
     y += 6;
 
     // ----------------- ENCABEZADOS CON FONDO -----------------
@@ -154,5 +176,24 @@ async function exportarPDF() {
     y += 8;
   });
 
-  doc.save("inventario_HFC_"+ document.getElementById("movil").value +"_"+ document.getElementById("placa").value);
+  // Guardar el PDF
+  doc.save("inventario_HFC_" + document.getElementById("movil").value + "_" + document.getElementById("placa").value);
+
+  // ---- Generar Excel ----
+  const excelData = [];
+  // Agregar encabezados de columnas
+  excelData.push(["Categoría", "Elemento", "Cantidad", "Estado", "Placa", "Tipo Movil"]);
+
+  // Agregar cada elemento al Excel
+  categorias.forEach(item => {
+    excelData.push([item.categoria, item.elemento, item.cantidad, item.estado, item.placa, item.movil]);
+  });
+
+  // Crear una hoja de trabajo con los datos
+  const ws = XLSX.utils.aoa_to_sheet(excelData);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Inventario HFC");
+
+  // Guardar el archivo Excel
+  XLSX.writeFile(wb, "inventario_HFC_" + document.getElementById("movil").value + "_" + document.getElementById("placa").value + ".xlsx");
 }

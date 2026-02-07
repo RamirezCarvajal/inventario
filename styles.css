@@ -6,6 +6,15 @@ body {
   h1 {
     text-align: center;
   }
+  label {    
+    font-size: 33px;
+  }
+  strong {
+    width: 40%;
+    height: 50%;
+    
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -15,14 +24,27 @@ body {
   th, td {
     border: 1px solid #ccc;
     padding: 6px;
-    font-size: 13px;
+    font-size: 33px;
     text-align: left;
   }
   th {
     background: #e9ecef;
   }
+  input[type="text"] {
+    width: 80%;
+    font-size: 33px;
+  }
   input[type="number"] {
     width: 40px;
+    font-size: 33px;
+  }
+  input[type="date"] {
+    width: 80%;
+    font-size: 33px;
+  }
+   select {
+    width: 170px;
+    font-size: 33px;
   }
   .datos {
     background: #fff;
@@ -31,8 +53,8 @@ body {
     margin-bottom: 20px;
   }
   button {
-    padding: 10px 20px;
-    font-size: 15px;
+    padding: 30px 60px;
+    font-size: 55px;
     cursor: pointer;
   }
 
@@ -46,4 +68,18 @@ a {
     border-radius: 5px;
     font-size: 16px;
     border-radius: 10px;
+}
+
+tr.categoria td {
+  background-color: #222;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px;
+  font-size: 30px;
+}
+
+tr.encabezados th {
+  background-color: #ddd;
+  text-align: left;
+  padding: 6px;
 }
