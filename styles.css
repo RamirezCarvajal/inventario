@@ -5,12 +5,14 @@ body {
   }
   h1 {
     text-align: center;
+    font-size: 53px;
   }
+  
   label {    
     font-size: 33px;
   }
   strong {
-    width: 40%;
+    width: 30%;
     height: 50%;
     
   }
@@ -21,30 +23,35 @@ body {
     background: #fff;
     margin-bottom: 20px;
   }
+  
   th, td {
     border: 1px solid #ccc;
     padding: 6px;
-    font-size: 33px;
+    font-size: 43px;
     text-align: left;
   }
   th {
     background: #e9ecef;
+    text-align: center;
+  }
+   td, input[type="number"] {
+    width: 60px;
+    font-size: 43px;
+    
   }
   input[type="text"] {
-    width: 80%;
-    font-size: 33px;
+    width: 100%;
+    font-size: 43px;
   }
-  input[type="number"] {
-    width: 40px;
-    font-size: 33px;
-  }
+
   input[type="date"] {
     width: 80%;
-    font-size: 33px;
+    font-size: 43px;
   }
    select {
     width: 170px;
-    font-size: 33px;
+    font-size: 43px;
+    
   }
   .datos {
     background: #fff;
@@ -75,7 +82,8 @@ tr.categoria td {
   color: #fff;
   font-weight: bold;
   padding: 8px;
-  font-size: 30px;
+  font-size: 50px;
+  text-align: center;
 }
 
 tr.encabezados th {
