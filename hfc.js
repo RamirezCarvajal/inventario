@@ -51,7 +51,7 @@ async function exportarPDFYExcel() {
     if (celdas.length < 3) return; // Saltar filas que no tienen datos
 
     const elemento = celdas[0].innerText; // El nombre del elemento
-    const Cant. = Number(celdas[1].querySelector("input").value || 0); // La Cant.
+    const cantidad = Number(celdas[1].querySelector("input").value || 0); // La cantidad
     const estado = celdas[2].querySelector("select").value; // El estado
 
     if (estado === "NA") return; // Si el estado es "NA", no lo incluyo en el PDF
@@ -60,7 +60,7 @@ async function exportarPDFYExcel() {
     categorias.push({
       categoria: categoriaActual,
       elemento: elemento,
-      Cant.: Cant.,
+      cantidad: cantidad,
       estado: estado,
       placa: document.getElementById("placa").value,
       movil: document.getElementById("movil").value
@@ -146,7 +146,7 @@ async function exportarPDFYExcel() {
 
       doc.setTextColor(0, 0, 0);
       doc.text(item.elemento, 20, y);
-      doc.text(item.Cant..toString(), 140, y);
+      doc.text(item.cantidad.toString(), 140, y);
       doc.text(item.estado, 170, y);
       y += 5;
     });
@@ -166,7 +166,7 @@ async function exportarPDFYExcel() {
 
       doc.setTextColor(0, 0, 0);
       doc.text(item.elemento, 20, y);
-      doc.text(item.Cant..toString(), 140, y);
+      doc.text(item.cantidad.toString(), 140, y);
       doc.text(item.estado, 170, y);
       y += 5;
 
@@ -182,11 +182,11 @@ async function exportarPDFYExcel() {
   // ---- Generar Excel ----
   const excelData = [];
   // Agregar encabezados de columnas
-  excelData.push(["Categoría", "Elemento", "Cant.", "Estado", "Placa", "Tipo Movil"]);
+  excelData.push(["Categoría", "Elemento", "Cantidad", "Estado", "Placa", "Tipo Movil"]);
 
   // Agregar cada elemento al Excel
   categorias.forEach(item => {
-    excelData.push([item.categoria, item.elemento, item.Cant., item.estado, item.placa, item.movil]);
+    excelData.push([item.categoria, item.elemento, item.cantidad, item.estado, item.placa, item.movil]);
   });
 
   // Crear una hoja de trabajo con los datos
